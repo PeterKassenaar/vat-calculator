@@ -1,0 +1,63 @@
+<div class="container">
+  <form action="">
+    <div class="row">
+      <div class="col">
+        <h1>VAT Calculator</h1>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <p>Amount</p>
+      </div>
+      <div class="col">
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">&euro;</div>
+          </div>
+          <input type="number" [(ngModel)]="amount" name="amount"
+                 class="form-control" placeholder="Amount">
+        </div>
+      </div>
+      <div class="col">
+        <select [(ngModel)]="vat" (ngModelChange)="calculate()" name="vat" class="form-control">
+          <option selected value="inclusive">VAT Inclusive</option>
+          <option value="exclusive">VAT Exclusive</option>
+        </select>
+      </div>
+    </div>
+    <!--/Form row-->
+    <!--Second row-->
+    <div class="form-row">
+      <div class="col">
+        VAT Tariff
+      </div>
+      <div class="col">
+        <select [(ngModel)]="tariff"
+                (ngModelChange)="calculate()"
+                name="tariff" class="form-control">
+          <option selected [value]="vatHigh">High ({{vatHigh}}%)</option>
+          <option [value]="vatLow">Low ({{vatLow}}%)</option>
+          <option [value]="vatLow2019">Low 2019 ({{vatLow2019}}%)</option>
+        </select>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary"
+                (click)="calculate()">Calculate
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <hr>
+        <h2>Result: {{ result | currency:'EUR':'symbol'}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <hr>
+        <h2>VAT amount: {{ resultVat | currency:'EUR':'symbol'}}</h2>
+      </div>
+    </div>
+  </form>
+</div>
+
