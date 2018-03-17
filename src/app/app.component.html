@@ -49,13 +49,20 @@
     <div class="row">
       <div class="col">
         <hr>
-        <h2>Result: {{ result | currency:'EUR':'symbol'}}</h2>
+        <h2>Total amount: {{ result | currency:'EUR':'symbol'}}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <hr>
         <h2>VAT amount: {{ resultVat | currency:'EUR':'symbol'}}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="text-center small">
+          (C) Peter Kassenaar - <a href="mailto:info@kassenaar.com">info@kassenaar.com</a>
+        </p>
       </div>
     </div>
   </form>
