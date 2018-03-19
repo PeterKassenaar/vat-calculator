@@ -2,6 +2,8 @@
 
 A simple VAT Calculator, for calculating amounts inclusive/exclusive VAT. It is currently spiked at Dutch VAT-percentages (see environment-variables) of 21% and 6% for high and low percentages respectively.
 
+Running demo available at [https://peterkassenaar.github.io/vat-calculator/](https://peterkassenaar.github.io/vat-calculator/). 
+
 # Generator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
