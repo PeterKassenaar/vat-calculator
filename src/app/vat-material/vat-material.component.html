@@ -1,0 +1,90 @@
+<form action="">
+	<mat-grid-list cols="3">
+		<!--Header-->
+		<mat-grid-tile-header>
+			<mat-toolbar color="primary">
+				<h1>VAT Calculator</h1>
+			</mat-toolbar>
+		</mat-grid-tile-header>
+		<!--First row-->
+		<mat-grid-tile>
+			<mat-chip-list>
+				<mat-chip color="primary" selected="true">
+					Amount
+				</mat-chip>
+			</mat-chip-list>
+		</mat-grid-tile>
+		<mat-grid-tile>
+			<mat-form-field>
+				<input matInput [(ngModel)]="amount" name="amount"
+					   placeholder="Amount (EUR)">
+			</mat-form-field>
+		</mat-grid-tile>
+		<mat-grid-tile>
+			<mat-form-field>
+				<mat-select placeholder="Select" [(ngModel)]="vat" (ngModelChange)="calculate()" name="vat">
+					<mat-option value="inclusive">VAT Inclusive</mat-option>
+					<mat-option value="exclusive">VAT Exclusive</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</mat-grid-tile>
+		<!--Second row-->
+		<mat-grid-tile>
+			<mat-chip-list>
+				<mat-chip color="primary" selected="true">
+					VAT Tariff
+				</mat-chip>
+			</mat-chip-list>
+		</mat-grid-tile>
+
+		<mat-grid-tile>
+			<mat-form-field>
+				<mat-select placeholder="Tariff" [(ngModel)]="tariff"
+							(ngModelChange)="calculate()"
+							name="tariff">
+					<mat-option [value]="vatHigh">High ({{vatHigh}}%)</mat-option>
+					<mat-option [value]="vatLow">Low ({{vatLow}}%)</mat-option>
+					<mat-option [value]="vatLow2019">Low 2019 ({{vatLow2019}}%)</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</mat-grid-tile>
+
+		<mat-grid-tile>
+			<button mat-raised-button color="primary"
+					(click)="calculate()">Calculate
+			</button>
+
+		</mat-grid-tile>
+
+		<!--Third row - results -->
+		<mat-grid-tile>
+			<mat-card>
+				<mat-card-header>
+					<mat-card-title>
+						<h2>Total amount: </h2>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<h2>
+						{{ result | currency:'EUR':'symbol'}}
+					</h2>
+				</mat-card-content>
+			</mat-card>
+		</mat-grid-tile>
+		<mat-grid-tile>
+			<mat-card>
+				<mat-card-header>
+					<mat-card-title>
+						<h2>VAT amount: </h2>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<h2>
+						{{ resultVat | currency:'EUR':'symbol'}}
+					</h2>
+				</mat-card-content>
+			</mat-card>
+		</mat-grid-tile>
+	</mat-grid-list>
+
+</form>
